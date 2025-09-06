@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Login</title></head>
+<body>
+  <h1>Portal de Usuarios</h1>
+  <form id="f">
+    <input id="email" type="email" placeholder="email" value="admin@demo.com"/>
+    <input id="password" type="password" placeholder="password" value="admin123"/>
+    <button id="btn" type="submit">Entrar</button>
+  </form>
+  <div id="msg"></div>
+
+  <script>
+    document.getElementById('f').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          email: document.getElementById('email').value,
+          password: document.getElementById('password').value
+        })
+      });
+      const ok = res.ok;
+      document.getElementById('msg').textContent = ok ? 'Login OK' : 'Login fail';
+    });
+  </script>
+</body>
+</html>
