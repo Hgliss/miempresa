@@ -32,7 +32,7 @@ public class DataLoader {
             if (users.findByEmail("admin@demo.com").isEmpty()) {
                 User u = new User();
                 u.setEmail("admin@demo.com");
-                u.setPassword("admin123"); // ⚠️ solo para demo/QA
+                u.setPassword("admin123"); //  solo para demo/QA
                 u.setFullName("Administrador");
                 u.setRole(roles.findByName("ADMIN").get());
                 users.save(u);
