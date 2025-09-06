@@ -37,5 +37,5 @@ public class AuthControllerIT {
                     .andExpect(jsonPath("$.role").value("ADMIN")); 
     }
 
-    // Puedes agregar un test para login fallido también
+ 
 }
